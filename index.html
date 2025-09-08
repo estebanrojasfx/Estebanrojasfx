@@ -2,68 +2,266 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jhon Esteban - Trader & Mentor</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jhon Esteban — Trader & Mentor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0c;--card:#111113;--muted:#8b8d93;--text:#f5f6f7;--brand:#111;--pill:#18191c;--accent:#ffffff;
+      --ok:#34d399;--ok2:#16a34a;--border:#232427;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#0b0b0c;color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:30;background:rgba(11,11,12,.6);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:600}
+    .brand .logo{width:36px;height:36px;border-radius:12px;background:#fff}
+    .nav a{color:var(--muted);font-size:14px;margin-left:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:14px;border:1px solid var(--border);background:#151618;color:#fff;font-weight:600}
+    .btn.primary{background:#ffffff;color:#000;border-color:#fff}
+    .btn.ghost{background:#101114}
+    .btn.block{width:100%;justify-content:center}
+    .badge{padding:4px 10px;border-radius:999px;background:#121316;border:1px solid var(--border);font-size:12px;color:#b4b6bd}
+    .hero{background:
+      radial-gradient(1000px 400px at 20% -100px, #30323455, transparent 60%),
+      radial-gradient(800px 300px at 80% -120px, #42475a40, transparent 60%),
+      #0b0b0c url('https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      border-bottom:1px solid var(--border);
+    }
+    .hero .wrap{padding:80px 0}
+    h1{font-size:40px;line-height:1.12;margin:0 0 12px;font-weight:800}
+    .lead{color:#c7c9d0;max-width:740px}
+    .mt-4{margin-top:16px}.mt-6{margin-top:24px}.mt-8{margin-top:32px}.mt-12{margin-top:48px}
+    .row{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+    .col-12{grid-column:span 12}
+    .col-6{grid-column:span 6}
+    .col-4{grid-column:span 4}
+    @media(max-width:900px){.col-6,.col-4{grid-column:span 12}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:24px}
+    .title{font-weight:700;font-size:26px;margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .list{list-style:none;margin:16px 0 0;padding:0}
+    .li{display:flex;align-items:flex-start;gap:10px;margin:10px 0;color:#d9dbe1}
+    .dot{width:9px;height:9px;border-radius:50%;margin-top:7px;background:linear-gradient(180deg,#34d399,#16a34a)}
+    .plans .price{font-size:30px;font-weight:800;margin-top:6px}
+    .strike{color:#9aa0aa;text-decoration:line-through;margin-right:8px;font-weight:600}
+    footer{border-top:1px solid var(--border);background:#0b0b0c}
+    .pill{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#111214;border:1px solid var(--border);color:#cfd2d9}
+    .grid-cta{align-items:center}
+    .cta-form{background:#0f1012;border:1px solid var(--border);border-radius:20px;padding:18px}
+    .input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0c0d0f;color:#fff}
+    .input + .input{margin-top:10px}
+    .ok{color:#10b981}
+    .btn-pay{background:#fff;color:#000;border-color:#fff}
+    .btn-outline{background:#101114}
+    .subtitle{font-size:14px;color:#a6a9b1}
+  </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header>
-    <h1>Jhon Esteban • Trader & Mentor</h1>
-    <nav>
-      <a href="#metodo">Método</a>
-      <a href="#mentoria">Mentoría</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacto">Aplicar</a>
-    </nav>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>Jhon Esteban • Trader & Mentor</div>
+      </div>
+      <div>
+        <a href="#metodo">Método</a>
+        <a href="#reconocimientos">Reconocimientos</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#mentoria">Planes</a>
+        <a href="#cta" class="btn">Aplicar</a>
+      </div>
+    </div>
   </header>
 
-  <section id="hero">
-    <h2>Construye consistencia y conviértete en un trader profesional</h2>
-    <p>Mentoría personalizada 1:1 enfocada en transformar tu mentalidad, tu disciplina y tus resultados.</p>
-    <a href="#mentoria">Ver planes</a>
-  </section>
-
-  <section id="mentoria">
-    <h2>Planes de Mentoría</h2>
-    <div class="plan">
-      <h3>Mentoría 1:1 Premium</h3>
-      <p><del>$3000</del> <strong>$1500</strong></p>
-      <ul>
-        <li>Sesiones 1:1 en vivo</li>
-        <li>Bitácora de trading incluida</li>
-        <li>Plan de riesgo por objetivo</li>
-        <li>Sistema PRO + Plan de Trading Élite</li>
-        <li>Soporte privado por WhatsApp</li>
-      </ul>
-      <a href="https://paypal.me/estebanjpr/1500usd" target="_blank">💳 Pagar con PayPal</a>
-      <a href="pay/binance-1500.png" target="_blank">🪙 Pagar con Binance (QR)</a>
-      <a href="https://wa.me/5491122730045?text=Quiero%20pagar%20por%20Western%20Union%20la%20Mentoría%201:1%20Premium" target="_blank">📩 Western Union</a>
-    </div>
-
-    <div class="plan">
-      <h3>Plan Mensual</h3>
-      <p><del>$1000</del> <strong>$500 / mes</strong></p>
-      <ul>
-        <li>Acceso a la mentoría mientras estés activo</li>
-        <li>Correcciones en vivo y seguimiento</li>
-        <li>Bitácora incluida</li>
-        <li>Recursos y soporte privado por WhatsApp</li>
-      </ul>
-      <a href="https://paypal.me/estebanjpr/500usd" target="_blank">💳 Pagar con PayPal</a>
-      <a href="pay/binance-500.png" target="_blank">🪙 Pagar con Binance (QR)</a>
-      <a href="https://wa.me/5491122730045?text=Quiero%20pagar%20por%20Western%20Union%20el%20Plan%20Mensual" target="_blank">📩 Western Union</a>
-    </div>
-
-    <div class="plan beca">
-      <h3>Beca Parcial (limitada)</h3>
-      <p>Exclusiva para <b>menores de edad</b> motivados. Requiere entrevista y compromiso de seguimiento.</p>
-      <a href="https://wa.me/5491122730045?text=Quiero%20postular%20a%20la%20beca%20parcial" target="_blank">Postular a beca</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container wrap">
+      <span class="badge">Reconocido Top 1% / Top 5% — Metodología de lectura de precio y riesgo</span>
+      <h1>Construye consistencia y conviértete en un trader profesional</h1>
+      <p class="lead">
+        Mentoría personalizada 1:1 enfocada en transformar tu mentalidad, tu disciplina y tus resultados.
+        Un sistema claro para llevarte desde cero hasta la ejecución profesional, con objetivo de ingresos desde <b>$2.000/mes</b>.
+      </p>
+      <div class="mt-6">
+        <a class="btn btn-pay" href="#mentoria">Ver planes</a>
+        <a class="btn ghost" href="https://wa.me/5491122730045?text=Hola%20Jhon,%20quiero%20aplicar%20a%20la%20mentoría%201:1">WhatsApp</a>
+      </div>
     </div>
   </section>
 
-  <footer id="contacto">
-    <p>© 2025 Jhon Esteban. Todos los derechos reservados.</p>
+  <!-- MÉTODO -->
+  <section id="metodo" class="container mt-12">
+    <h2 class="title">Mi metodología</h2>
+    <p class="subtitle">Pasos claros, repetibles y medibles. Sin tecnicismos: ejecución profesional y enfoque en proceso.</p>
+
+    <div class="row mt-6">
+      <div class="col-6">
+        <div class="card">
+          <div class="title" style="font-size:20px">Sistema PRO validado</div>
+          <ul class="list">
+            <li class="li"><span class="dot"></span>Estructura del mercado, multitemporalidades, zonas clave, liquidez e imbalances.</li>
+            <li class="li"><span class="dot"></span>Confirmaciones simples, reglas claras que evitan improvisar.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="title" style="font-size:20px">Gestión de riesgo profesional</div>
+          <ul class="list">
+            <li class="li"><span class="dot"></span>Límites diarios, control de racha y tamaño de posición coherente.</li>
+            <li class="li"><span class="dot"></span>Plan por cuenta y objetivos con métricas de consistencia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-6">
+      <div class="col-6">
+        <div class="card">
+          <div class="title" style="font-size:20px">Bitácora incluida</div>
+          <ul class="list">
+            <li class="li"><span class="dot"></span>Registro de operaciones, métricas y revisión semanal para mejorar.</li>
+            <li class="li"><span class="dot"></span>Psicología aplicada: menos impulsos, más plan. Foco bajo presión.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="title" style="font-size:20px">Mentoría 1:1 Premium</div>
+          <ul class="list">
+            <li class="li"><span class="dot"></span>Acompañamiento directo por WhatsApp y correcciones en vivo.</li>
+            <li class="li"><span class="dot"></span>Llamadas exclusivas 1:1 para afinar ejecución (según disponibilidad mutua).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section id="mentoria" class="container mt-12 plans">
+    <h2 class="title">Planes de Mentoría</h2>
+    <div class="row mt-6">
+
+      <!-- Premium -->
+      <div class="col-6">
+        <div class="card">
+          <div class="subtitle">Mentoría 1:1 Premium</div>
+          <div class="price"><span class="strike">$3000</span> $1500 <span class="subtitle">total</span></div>
+
+          <ul class="list mt-4">
+            <li class="li"><span class="dot"></span>Plan personalizado y seguimiento cercano</li>
+            <li class="li"><span class="dot"></span>Sesiones 1:1 en vivo</li>
+            <li class="li"><span class="dot"></span>Bitácora de trading incluida</li>
+            <li class="li"><span class="dot"></span>Sistema PRO + Plan de Trading Élite</li>
+            <li class="li"><span class="dot"></span>Soporte privado por WhatsApp (prioridad)</li>
+            <li class="li"><span class="dot"></span>Llamadas exclusivas adicionales 1:1 con Esteban</li>
+          </ul>
+
+          <div class="mt-6">
+            <a class="btn btn-pay block" target="_blank" href="https://paypal.me/estebanjpr/1500usd">💳 Pagar con PayPal</a>
+            <!-- Si subes tus QR a /pay/binance-1500.png, este botón los abrirá -->
+            <a class="btn block mt-4" target="_blank" href="pay/binance-1500.png">🪙 Pagar con Binance (QR)</a>
+            <a class="btn block mt-4" target="_blank" href="https://wa.me/5491122730045?text=Hola%20Jhon,%20quiero%20pagar%20la%20Mentor%C3%ADa%201:1%20Premium%20por%20Western%20Union.%20%F0%9F%93%A3%20P%C3%BAsame%20los%20datos.">📩 Western Union (coordinar por WhatsApp)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensual -->
+      <div class="col-6">
+        <div class="card">
+          <div class="subtitle">Plan Mensual</div>
+          <div class="price"><span class="strike">$1000</span> $500 <span class="subtitle">/ mes</span></div>
+
+          <ul class="list mt-4">
+            <li class="li"><span class="dot"></span>Acceso completo mientras estés activo</li>
+            <li class="li"><span class="dot"></span>Correcciones en vivo y seguimiento</li>
+            <li class="li"><span class="dot"></span>Bitácora incluida</li>
+            <li class="li"><span class="dot"></span>Soporte privado por WhatsApp</li>
+            <li class="li"><span class="dot"></span>Recursos y material</li>
+          </ul>
+
+          <div class="mt-6">
+            <a class="btn btn-pay block" target="_blank" href="https://paypal.me/estebanjpr/500usd">💳 Pagar con PayPal (500 USD)</a>
+            <!-- Si subes tus QR a /pay/binance-500.png, este botón los abrirá -->
+            <a class="btn block mt-4" target="_blank" href="pay/binance-500.png">🪙 Pagar con Binance (QR)</a>
+            <a class="btn block mt-4" target="_blank" href="https://wa.me/5491122730045?text=Hola%20Jhon,%20quiero%20pagar%20el%20Plan%20Mensual%20por%20Western%20Union.%20%F0%9F%93%A3%20P%C3%BAsame%20los%20datos.">📩 Western Union (coordinar por WhatsApp)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beca -->
+      <div class="col-12 mt-6">
+        <div class="card" style="background:#0f1113;border-color:#26272a">
+          <div class="row">
+            <div class="col-6">
+              <div class="subtitle">PROGRAMA INTENSIVO</div>
+              <div class="title">Beca Parcial (limitada)</div>
+              <p class="muted">Exclusiva para <b>menores de edad</b> aplicados y con alta motivación. Requiere entrevista y compromiso de seguimiento.</p>
+            </div>
+            <div class="col-6" style="display:flex;align-items:center;justify-content:flex-end">
+              <a class="btn btn-pay" target="_blank" href="https://wa.me/5491122730045?text=Hola%20Jhon,%20quiero%20postular%20a%20la%20Beca%20Parcial.%20Tengo%20alta%20motivaci%C3%B3n%20y%20compromiso.">Postular a beca (WhatsApp)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="container mt-12">
+    <div class="row grid-cta">
+      <div class="col-6">
+        <h3 class="title">¿Listo para cambiar tu vida y construir consistencia real?</h3>
+        <p class="muted">
+          Aunque nunca hayas operado, esta mentoría está pensada para transformar tu mentalidad y resultados.
+          Y si ya tienes experiencia, es justo lo que necesitas para alcanzar rentabilidad real.
+        </p>
+        <div class="mt-6">
+          <div class="pill">🎯 Objetivo: +$2.000/mes • 1:1 personalizado • Bitácora incluida</div>
+        </div>
+      </div>
+      <div class="col-6">
+        <form class="cta-form" action="https://formsubmit.co/perafanrojas123@gmail.com" method="POST">
+          <input class="input" name="nombre" placeholder="Tu nombre" required>
+          <input class="input" type="email" name="email" placeholder="Email" required>
+          <input class="input" name="pais" placeholder="País / Zona horaria" required>
+          <textarea class="input" name="objetivo" placeholder="Cuéntame tu experiencia y objetivo" rows="4" required></textarea>
+          <button class="btn btn-pay block mt-4" type="submit">Enviar aplicación</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-12">
+    <div class="container" style="padding:32px 0">
+      <div class="row">
+        <div class="col-6">
+          <div class="title" style="font-size:20px">Conecta conmigo</div>
+          <p class="muted">Mentoría 1:1 y colaboraciones.</p>
+          <div class="mt-4">
+            <a class="pill" href="mailto:perafanrojas123@gmail.com">✉️ perafanrojas123@gmail.com</a>
+            <span style="display:inline-block;width:10px"></span>
+            <a class="pill" href="https://wa.me/5491122730045?text=Hola%20Jhon,%20quiero%20saber%20m%C3%A1s%20sobre%20la%20mentoria.">💬 WhatsApp</a>
+          </div>
+          <div class="mt-4">
+            <a class="pill" href="https://www.tiktok.com/@estebanrojasfx">TikTok</a>
+            <span style="display:inline-block;width:10px"></span>
+            <a class="pill" href="https://www.instagram.com/estebanrojasfx/">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="muted" style="margin-top:26px;font-size:12px">© <span id="y"></span> Jhon Esteban. Todos los derechos reservados.</div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </footer>
+
 </body>
 </html>
