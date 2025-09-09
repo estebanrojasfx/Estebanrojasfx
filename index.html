@@ -48,6 +48,17 @@
     @media(min-width:680px){.card.sm-6{grid-column:span 6}}
     @media(min-width:980px){.card.md-4{grid-column:span 4}}
 
+    /* ====== LOGOS ====== */
+    .logo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:center}
+    @media(min-width:700px){.logo-grid{grid-template-columns:repeat(4,1fr)}}
+    .logo-wrap{background:#0f1422;border:1px dashed #283142;border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:center}
+    .logo{max-height:56px;width:auto;object-fit:contain}
+
+    /* ====== GALLERY ====== */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    @media(min-width:800px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .gallery img{border-radius:16px;object-fit:cover;aspect-ratio:4/3}
+
     /* ====== PRICING ====== */
     .pricing-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px}
     .pricing-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
@@ -63,7 +74,7 @@
     ul.features li::before{content:"";width:10px;height:10px;border-radius:50%;margin-top:9px;background:var(--ok)}
     .cta-note{opacity:.68;font-size:13px;margin-top:8px}
 
-    /* ====== APPLY ====== */
+    /* ====== APPLY (dos columnas) ====== */
     .apply{display:grid;grid-template-columns:1fr;gap:22px}
     @media(min-width:980px){.apply{grid-template-columns:1fr 1fr;align-items:start}}
     .pill{display:inline-flex;gap:10px;align-items:center;background:#0f1422;border:1px solid #273246;padding:10px 14px;border-radius:999px;color:#cbd5e1;font-weight:600}
@@ -72,11 +83,11 @@
     .f input::placeholder,.f textarea::placeholder{color:#8b95a7}
     .f textarea{min-height:130px;resize:vertical}
 
-    /* ====== CONTACTO PILLS ====== */
+    /* ====== CONNECT ====== */
     .pills{display:flex;gap:10px;flex-wrap:wrap}
     .pill-link{display:inline-flex;align-items:center;gap:10px;background:#0f1422;border:1px solid #273246;border-radius:999px;padding:10px 14px;color:#e5e7eb;text-decoration:none}
 
-    /* ====== RESULTADOS (screenshots + viewer) ====== */
+    /* ====== RESULTS (screenshots + modal viewer) ====== */
     .shots{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .shot-card{grid-column:span 12;display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:14px}
     @media(min-width:860px){.shot-card{grid-column:span 6}}
@@ -98,6 +109,7 @@
     .viewer-img{max-width:min(92vw,780px);max-height:80vh;border-radius:16px}
     .close-x{position:absolute;top:18px;right:18px;background:transparent;border:1px solid #2a3242;color:#cbd5e1;border-radius:12px;padding:6px 10px;cursor:pointer}
 
+    /* ====== FOOTER ====== */
     footer{padding:28px;border-top:1px solid var(--hair);color:#94a3b8;text-align:center}
   </style>
 </head>
@@ -183,6 +195,7 @@
               <li>Soporte privado por WhatsApp</li>
               <li>Recursos y material</li>
             </ul>
+
             <a id="btnPayPal500" class="btn white" href="#" target="_blank" rel="noopener">💳 Pagar con PayPal (500 USD)</a>
             <a id="btnBinance500" class="btn" href="#" data-open-qr>🪙 Pagar con Binance (QR)</a>
             <a id="btnWU500" class="btn" href="#contacto">💌 Western Union (coordinar por WhatsApp)</a>
@@ -191,7 +204,7 @@
       </div>
     </section>
 
-    <!-- ===== RESULTADOS ===== -->
+    <!-- ===== RESULTADOS DE ESTUDIANTES ===== -->
     <section id="resultados">
       <div class="container">
         <h2>Resultados de estudiantes</h2>
@@ -199,34 +212,51 @@
         <div class="shots">
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/juan-800-30m.jpg" alt="Juan: 800 USD en 30 minutos" data-view="./assets/results/juan-800-30m.jpg" data-cap="Juan — +$800 en 30 minutos (GBPUSD)"/>
-            <div class="shot-meta"><h3>Juan — +$800 en 30 minutos</h3><small>GBPUSD • ejecución guiada • semana 1</small></div>
+            <div class="shot-meta">
+              <h3>Juan — +$800 en 30 minutos</h3>
+              <small>GBPUSD • ejecución guiada • semana 1</small>
+            </div>
           </div>
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/historial-2574.jpg" alt="Historial: +$2.574 semana" data-view="./assets/results/historial-2574.jpg" data-cap="Historial semanal — +$2.574 (sin swap, comisión -156)"/>
-            <div class="shot-meta"><h3>+ $2.574 en una semana</h3><small>Resumen de operaciones (sin swap) • control del riesgo</small></div>
+            <div class="shot-meta">
+              <h3>+ $2.574 en una semana</h3>
+              <small>Resumen de operaciones (sin swap) • control del riesgo</small>
+            </div>
           </div>
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/elvin-1193.jpg" alt="Elvin: beneficio 1.193,75" data-view="./assets/results/elvin-1193.jpg" data-cap="Elvin — beneficio $1.193,75 (GBPUSD)"/>
-            <div class="shot-meta"><h3>Elvin — $1.193,75</h3><small>GBPUSD • gestión por zonas • M5</small></div>
+            <div class="shot-meta">
+              <h3>Elvin — $1.193,75</h3>
+              <small>GBPUSD • gestión por zonas • M5</small>
+            </div>
           </div>
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/elvin-437.jpg" alt="Elvin: profit 437,50" data-view="./assets/results/elvin-437.jpg" data-cap="Elvin — profit $437,50 (TradeLocker demo)"/>
-            <div class="shot-meta"><h3>Elvin — $437,50</h3><small>Señal supervisada • confirmación y ejecución</small></div>
+            <div class="shot-meta">
+              <h3>Elvin — $437,50</h3>
+              <small>Señal supervisada • confirmación y ejecución</small>
+            </div>
           </div>
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/gabriela-516.jpg" alt="Gabriela: 516" data-view="./assets/results/gabriela-516.jpg" data-cap="Gabriela — trade validado: $516"/>
-            <div class="shot-meta"><h3>Gabriela — $516</h3><small>Validación previa • 30 minutos de ejecución</small></div>
+            <div class="shot-meta">
+              <h3>Gabriela — $516</h3>
+              <small>Validación previa • 30 minutos de ejecución</small>
+            </div>
           </div>
           <div class="shot-card">
             <img class="shot-thumb" src="./assets/results/gabriela-1600.jpg" alt="Gabriela: semana $1600" data-view="./assets/results/gabriela-1600.jpg" data-cap="Gabriela — semana de $1.600 (GBPUSD)"/>
-            <div class="shot-meta"><h3>Gabriela — $1.600 en la semana</h3><small>Seguimiento diario • registro en Notion</small></div>
+            <div class="shot-meta">
+              <h3>Gabriela — $1.600 en la semana</h3>
+              <small>Seguimiento diario • registro en Notion</small>
+            </div>
           </div>
         </div>
-        <p class="disclaimer">Los testimonios y cifras son ilustrativos. El trading implica riesgo. No se garantizan resultados; el desempeño depende de tu ejecución y del mercado.</p>
       </div>
     </section>
 
-    <!-- ===== CERTIFICACIONES ===== -->
+    <!-- ===== CERTIFICACIONES Y RECONOCIMIENTOS ===== -->
     <section id="certificaciones">
       <div class="container">
         <h2>Certificaciones y reconocimientos</h2>
@@ -269,7 +299,7 @@
       </div>
     </section>
 
-    <!-- ===== CONTACTO ===== -->
+    <!-- ===== CONECTA CONMIGO ===== -->
     <section id="contacto">
       <div class="container">
         <h2>Conecta conmigo</h2>
@@ -283,7 +313,7 @@
       </div>
     </section>
 
-    <!-- ===== BECA ===== -->
+    <!-- ===== PROGRAMA INTENSIVO: BECA PARCIAL ===== -->
     <section id="beca">
       <div class="container">
         <div class="scholar">
@@ -315,7 +345,7 @@
     </div>
   </div>
 
-  <!-- ===== VIEWER ===== -->
+  <!-- ===== VIEWER (para screenshots/certs) ===== -->
   <div id="viewer" role="dialog" aria-modal="true">
     <figure class="viewer-box">
       <button class="close-x" id="closeViewer" aria-label="Cerrar">✕</button>
@@ -329,17 +359,18 @@
   </footer>
 
   <script>
-    // ===== Config reales =====
+    // ===== Config reales de Esteban =====
     const PAYPAL_LINK_TOTAL = 'https://www.paypal.com/paypalme/estebanjpr/1500usd';
     const PAYPAL_LINK_MENSUAL = 'https://www.paypal.com/paypalme/estebanjpr/500usd';
     const BINANCE_ID = '167874003';
     const BINANCE_ALIAS = 'estebanrojas1';
-    const BINANCE_PAY_LINK = ''; // opcional
+    const BINANCE_PAY_LINK = '';
     const WHATSAPP_LINK = 'https://api.whatsapp.com/send/?phone=5491122730045&text=Hola+Jhon%2C+quiero+saber+m%C3%A1s+sobre+la+mentoria.&type=phone_number&app_absent=0';
     const EMAIL = 'perafanrojas123@gmail.com';
     const INSTAGRAM = 'https://www.instagram.com/estebanrojasfx/';
     const TIKTOK = 'https://www.tiktok.com/@estebanrojasfx';
 
+    // ===== Util =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // PayPal
@@ -359,6 +390,7 @@
     qrModal.addEventListener('click', (e)=>{ if(e.target===qrModal) closeQR(); });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeQR(); });
 
+    // Relleno de datos Binance
     payA.textContent = BINANCE_PAY_LINK ? BINANCE_PAY_LINK : '(configurar)';
     payA.href = BINANCE_PAY_LINK || '#';
     payBtn.href = BINANCE_PAY_LINK || '#';
@@ -373,7 +405,7 @@
       }catch(e){ alert('No se pudo copiar. Copia manualmente: ' + BINANCE_ID); }
     });
 
-    // WhatsApp + beca
+    // WhatsApp + contacto (píldoras y beca)
     const waPill = document.getElementById('waPill');
     const btnBeca = document.getElementById('btnBeca');
     function withMsg(url, msg){
@@ -381,6 +413,7 @@
       try{ const u = new URL(url); u.searchParams.set('text', msg); return u.toString(); }
       catch{ const sep = url.includes('?') ? '&' : '?'; return url + sep + 'text=' + encodeURIComponent(msg); }
     }
+    const defaultMsg = 'Hola Esteban, quiero aplicar a la mentoría.';
     const becaMsg = 'Hola Esteban, quiero postular a la beca parcial. Soy menor de edad y tengo alta motivación.';
     if(WHATSAPP_LINK){
       waPill.href = WHATSAPP_LINK;
@@ -389,15 +422,17 @@
       btnBeca.href = withMsg(WHATSAPP_LINK, becaMsg);
     }
 
-    // Email + redes
+    // Email pill
     const emailPill = document.getElementById('emailPill');
     if(EMAIL){ emailPill.href = 'mailto:'+EMAIL; emailPill.textContent = '💌 '+EMAIL; }
+
+    // Social pills
     const igPill = document.getElementById('igPill');
     const tkPill = document.getElementById('tkPill');
-    if(INSTAGRAM){ igPill.href = INSTAGRAM; igPill.textContent = '📷 @'+INSTAGRAM.replace(/\/?$/,'').split('/').pop(); }
-    if(TIKTOK){ tkPill.href = TIKTOK; tkPill.textContent = '🎵 @'+(TIKTOK.split('@')[1] || TIKTOK.replace(/\/?$/,'').split('/').pop()); }
+    if(INSTAGRAM){ igPill.href = INSTAGRAM; const user = INSTAGRAM.replace(/\/?$/,'').split('/').pop(); igPill.textContent = '📷 @'+user; }
+    if(TIKTOK){ tkPill.href = TIKTOK; const user = TIKTOK.split('@')[1] || TIKTOK.replace(/\/?$/,'').split('/').pop(); tkPill.textContent = '🎵 @'+user; }
 
-    // Form -> WhatsApp o mailto
+    // Form de aplicación -> WhatsApp (si hay enlace) o mailto
     document.getElementById('btnApply').addEventListener('click', ()=>{
       const name = document.getElementById('inName').value.trim();
       const em = document.getElementById('inEmail').value.trim();
@@ -410,7 +445,7 @@
       else{ alert('Configura WHATSAPP_LINK o EMAIL para enviar tu aplicación.'); }
     });
 
-    // Lightbox resultados/certs
+    // ===== Lightbox para screenshots y certificaciones =====
     const viewer = document.getElementById('viewer');
     const vImg = document.getElementById('viewerImg');
     const vCap = document.getElementById('viewerCap');
