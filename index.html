@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -109,8 +109,15 @@
     .viewer-img{max-width:min(92vw,780px);max-height:80vh;border-radius:16px}
     .close-x{position:absolute;top:18px;right:18px;background:transparent;border:1px solid #2a3242;color:#cbd5e1;border-radius:12px;padding:6px 10px;cursor:pointer}
 
+    /* ====== STICKY CTA (mobile) ====== */
+    .sticky-cta{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:40;display:flex;gap:10px;background:rgba(15,20,34,.9);border:1px solid #263149;border-radius:16px;padding:10px}
+    .sticky-cta .btn{width:auto;padding:10px 14px}
+    @media(min-width:860px){.sticky-cta{display:none}}
+
     /* ====== FOOTER ====== */
     footer{padding:28px;border-top:1px solid var(--hair);color:#94a3b8;text-align:center}
+
+    .disclaimer{font-size:12px;color:#94a3b8}
   </style>
 </head>
 <body>
@@ -131,6 +138,7 @@
       <div class="cta">
         <a class="btn" style="width:auto" href="#mentoria">Ver mentoría</a>
         <a class="btn alt" style="width:auto" href="#planes">Ver planes</a>
+        <a class="btn white" style="width:auto" href="#curso">Ver curso</a>
         <a class="btn ghost" style="width:auto" href="#resultados">Ver resultados</a>
       </div>
     </div>
@@ -149,6 +157,43 @@
           <article class="card sm-6 md-4"><h3>Soporte</h3><p>Resolución de dudas por chat privado y revisión de operaciones clave.</p></article>
           <article class="card sm-6 md-4"><h3>Recursos</h3><p>Plantillas, checklists y grabaciones para que puedas repetir la informacion las veces que quieras.</p></article>
           <article class="card sm-6 md-4"><h3>Resultados</h3><p>Enfoque en consistencia y proceso; Te preparo para que obtengas un futuro prometedor y cambies tu vida.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CURSO GRABADO ===== -->
+    <section id="curso">
+      <div class="container">
+        <div class="pricing-head">
+          <h2>Curso grabado: De Cero a Ejecución Profesional</h2>
+          <span class="lead">$250 USD · pago único · acceso de por vida</span>
+        </div>
+        <div class="pricing-grid">
+          <article class="plan" aria-labelledby="cursoTitle">
+            <h3 id="cursoTitle">Todo el sistema en vídeo, a tu ritmo</h3>
+            <ul class="features">
+              <li>Fundamentos: estructura del mercado, liquidez y zonas de valor</li>
+              <li>Setups A+, gestión del riesgo y plan de trading paso a paso</li>
+              <li>Psicología del trader: sesgos y protocolo emocional de ejecución</li>
+              <li>Backtesting guiado + plantilla de bitácora para medir tus KPIs</li>
+              <li>Casos reales y ejemplos (GBPUSD) con criterios claros de entrada</li>
+              <li>Actualizaciones futuras incluidas</li>
+            </ul>
+            <a id="btnCourseBuy" class="btn white" href="#" target="_blank" rel="noopener">🎓 Comprar en Hotmart ($250)</a>
+            <a class="btn ghost" href="#faq">Ver preguntas frecuentes</a>
+            <div class="cta-note">Si luego decides entrar a la mentoría 1:1, este pago puede usarse como <strong>crédito</strong> (coordinar por WhatsApp).</div>
+          </article>
+          <article class="plan">
+            <h3>¿Qué vas a lograr?</h3>
+            <ul class="features">
+              <li>Construir un <strong>plan ejecutable y medible</strong></li>
+              <li>Operar con <strong>reglas claras</strong> y <strong>riesgo fijo</strong></li>
+              <li>Evitar errores impulsivos con <strong>checklists</strong></li>
+              <li>Mejorar semana a semana con <strong>KPIs</strong> y revisión</li>
+            </ul>
+            <p class="lead">Objetivo: tus primeros <strong>$3.000/mes</strong> de forma responsable (sin promesas, con proceso).</p>
+            <small class="disclaimer">El rendimiento depende de tu disciplina, tiempo de práctica y gestión del riesgo. No se garantizan resultados.</small>
+          </article>
         </div>
       </div>
     </section>
@@ -329,6 +374,12 @@
     </section>
   </main>
 
+  <!-- ===== STICKY CTA (mobile only) ===== -->
+  <div class="sticky-cta" role="region" aria-label="Acciones rápidas">
+    <a id="stickyWA" class="btn" href="#">💬 WhatsApp</a>
+    <a id="stickyCourse" class="btn white" href="#" target="_blank" rel="noopener">🎓 Curso $250</a>
+  </div>
+
   <!-- ===== MODAL QR ===== -->
   <div id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
     <div class="qr-box">
@@ -370,6 +421,13 @@
     const EMAIL = 'perafanrojas123@gmail.com';
     const INSTAGRAM = 'https://www.instagram.com/estebanrojasfx/';
     const TIKTOK = 'https://www.tiktok.com/@estebanrojasfx';
+
+    // Curso (Hotmart) + UTM
+    const COURSE_LINK_BASE = 'https://go.hotmart.com/C102315362Y';
+    function withUtm(base, medium){
+      try{ const u = new URL(base); u.searchParams.set('utm_source','site'); u.searchParams.set('utm_medium', medium); u.searchParams.set('utm_campaign','curso_250'); return u.toString(); }
+      catch{ const sep = base.includes('?') ? '&' : '?'; return `${base}${sep}utm_source=site&utm_medium=${encodeURIComponent(medium)}&utm_campaign=curso_250`; }
+    }
 
     // ===== Util =====
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -433,6 +491,15 @@
     if(INSTAGRAM){ igPill.href = INSTAGRAM; const user = INSTAGRAM.replace(/\/?$/,'').split('/').pop(); igPill.textContent = '📷 @'+user; }
     if(TIKTOK){ tkPill.href = TIKTOK; const user = TIKTOK.split('@')[1] || TIKTOK.replace(/\/?$/,'').split('/').pop(); tkPill.textContent = '🎵 @'+user; }
 
+    // ===== Curso (Hotmart) CTAs =====
+    const btnCourse = document.getElementById('btnCourseBuy');
+    if(btnCourse) btnCourse.href = withUtm(COURSE_LINK_BASE, 'section_cta');
+    const stickyCourse = document.getElementById('stickyCourse');
+    if(stickyCourse) stickyCourse.href = withUtm(COURSE_LINK_BASE, 'sticky_cta');
+
+    // Sticky WhatsApp CTA
+    document.getElementById('stickyWA')?.setAttribute('href', withMsg(WHATSAPP_LINK, defaultMsg));
+
     // Form de aplicación -> WhatsApp (si hay enlace) o mailto
     document.getElementById('btnApply').addEventListener('click', ()=>{
       const name = document.getElementById('inName').value.trim();
@@ -461,3 +528,4 @@
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeViewer(); });
   </script>
 </body>
+</html>
